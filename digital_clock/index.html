@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Noto+Serif:700)">
+    <title>DateTime</title>
+    <style>
+        p {
+            border: 10px solid #77fff9;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 50vh;
+            font-size: 5vw;
+        }
+
+        span {
+            margin-right: 15px;
+        }
+
+        /* #second {
+            animation: blinker 1s step-end infinite;
+        }
+
+        @keyframes blinker {
+            50% {
+                opacity: 0;
+            }
+        } */
+
+
+        body {
+            margin: 0;
+            background: hsla(180, 95%, 15%, 1);
+            font-family: 'Noto Serif', serif;
+            font-size: 4em;
+            color: #00a5ff;
+            text-shadow: 2px 2px #88ad88;
+            overflow: hidden;
+            width: 100%;
+
+        }
+    </style>
+</head>
+
+<body>
+    <p>
+        <span id="day">Sun</span>
+        <span id="date">10</span>
+        <span id="month">Jul</span>
+        <span id="hour">17</span>
+        <span>:</span>
+        <span id="minute">03</span>
+        <span>:</span>
+        <span id="second">00</span>
+    </p>
+</body>
+<script>
+    function two_digits(num) {
+        if (num < 10) {
+            return "0" + num
+        }
+
+        return num;
+    }
+
+    setInterval(function () {
+        let hour = new Date().getHours()
+        let minute = new Date().getMinutes()
+        let second = new Date().getSeconds()
+        let day = new Date().getDay()
+        let date = new Date().getDate()
+        // let month = new Date().getMonth
+
+        let days_of_the_week = ["Sun", "Mon", "Tues", "Wed", "Thurs", "Fri", "Sat"]
+
+
+
+        document.getElementById('hour').innerHTML = two_digits(hour)
+        document.getElementById('minute').innerHTML = two_digits(minute)
+        document.getElementById('second').innerHTML = two_digits(second)
+        document.getElementById('day').innerHTML = days_of_the_week[day]
+        document.getElementById('date').innerHTML = two_digits(date)
+        // document.getElementById('month').innerHTML = 
+    }, 0)
+
+</script>
+
+</html>
